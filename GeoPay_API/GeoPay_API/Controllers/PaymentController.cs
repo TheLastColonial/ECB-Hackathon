@@ -1,10 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using GeoPay_API.Models;
-using GeoPay_API.Repos;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace GeoPay_API.Controllers
 {
@@ -20,9 +16,9 @@ namespace GeoPay_API.Controllers
         }
 
         [HttpPost(Name = "Init")]
-        public async Task<JsonResult> Register(Payment payment)
+        public async Task<JsonResult> Register(int subscriptionId, [FromBody]Payment payment)
         {
-            string transactionId = await this.processor.RegisterPayment(payment);
+            string transactionId = await this.processor.RegisterPayment(subscriptionId, payment);
 
             return Json(new { TransactionId = transactionId });
         }
