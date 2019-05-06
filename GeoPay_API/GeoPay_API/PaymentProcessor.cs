@@ -16,7 +16,7 @@ namespace GeoPay_API
             this.transactionRepository = new TransactionRepository();
         }
 
-        public async Task<string> RegisterPayment([FromBody]Payment payment)
+        public async Task<string> RegisterPayment(int subscriptionId, [FromBody]Payment payment)
         {
             PaymentStatus paymentStatus = await this.bankService.RegisterPayment(payment);
 
@@ -24,7 +24,7 @@ namespace GeoPay_API
             {
                 State = paymentStatus.Status,
                 Amount = payment.Amount,
-                SubscriptionId = 1, // Todo: fix this
+                SubscriptionId = subscriptionId,
                 RemittanceInfo = payment.RemittanceInfo,
                 BankTransactionId = paymentStatus.TransactionId
             };
