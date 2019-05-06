@@ -9,6 +9,6 @@ namespace GeoPay_API.Repos
     {
         void Create(TransactionHistory transaction);
 
-        void Update(int transactionId, string state, string bankTransactionId);
+        void Update(string state, string bankTransactionId);
     }
 }

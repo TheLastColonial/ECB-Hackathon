@@ -15,9 +15,10 @@ namespace Tests
         [Test]
         public async Task Test1()
         {
-            BankService bankService = new BankService();
+            PaymentProcessor paymentProcessor = new PaymentProcessor();
 
-            var result = await bankService.GetPaymentStatus("123");
+
+            var result = await paymentProcessor.ExecutePayment("321463282363179XX");
         }
     }
 }
