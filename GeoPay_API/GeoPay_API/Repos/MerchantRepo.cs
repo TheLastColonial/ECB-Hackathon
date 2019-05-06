@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Data.SQLite;
 using System.IO;
 using System.Linq;
@@ -10,18 +11,21 @@ namespace GeoPay_API.Repos
 {
     public class MerchantRepo : IMerchantRepo
     {
+        private DbConnectionFactory dbConnectionFactory;
+
+        public MerchantRepo()
+        {
+            dbConnectionFactory = new DbConnectionFactory();
+        }
+
         public IEnumerable<Merchant> GetMerchants()
         {
-            var dbFilePath = "../../ecb.db";
-            if (!File.Exists(dbFilePath))
+            string sql = "SELECT Merchant.Id, Name, AccountNumber, Latitude, Longitude, Radius, GoogleReference FROM Merchant INNER JOIN Location ON Merchant.Id = Location.MerchantId";
+
+            using (DbConnection connection = dbConnectionFactory.CreateAndOpenDb())
             {
-                throw new Exception("Database file not found");
+                return connection.Query<Merchant>(sql).ToList();
             }
-            var _dbConnection = new SQLiteConnection(string.Format("Data Source={0};Version=3;", dbFilePath));
-            _dbConnection.Open();
-            return _dbConnection.Query<Merchant>(
-                "SELECT Merchant.Id, Name, AccountNumber, Latitude, Longitude, Radius, GoogleReference FROM Merchant INNER JOIN Location ON Merchant.Id = Location.MerchantId")
-                .ToList();
         }
     }
 }

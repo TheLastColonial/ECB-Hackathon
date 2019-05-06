@@ -28,7 +28,8 @@ namespace GeoPay_API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvcCore().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
-            .AddApiExplorer();
+            .AddApiExplorer()
+            .AddJsonFormatters();
 
             services.AddSwaggerGen(c =>
             {
