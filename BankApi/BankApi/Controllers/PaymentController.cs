@@ -21,7 +21,7 @@ namespace FakeBankService.Controllers
             return this.Ok(JsonConvert.SerializeObject(paymentStatus));
         }
 
-        [HttpPut("{transactionId}")]
+        [HttpPost("{transactionId}")]
         public ActionResult<PaymentStatus> ExecutePayment(string transactionId)
         {
             var paymentStatus = new PaymentStatus
