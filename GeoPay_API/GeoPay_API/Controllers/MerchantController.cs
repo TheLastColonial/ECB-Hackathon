@@ -23,5 +23,28 @@ namespace GeoPay_API.Controllers
         {
             return this.merchantRepo.GetMerchants();
         }
+
+        [HttpPost]
+        public IActionResult SetUserSubscription(int userId, List<Merchant> merchants)
+        {
+            if (userId == null) return this.BadRequest(nameof(userId));
+            if (merchants.Count <= 0) return this.BadRequest(nameof(merchants));
+
+            try
+            {
+                return this.Created($"api/subscription/{1}", new Subscription()
+                {
+                    SubscriptionId = 1,
+                    MerchantId = 1,
+                    UserId = userId
+                });
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(500, ex.Message);
+            }
+        }
+
+
     }
 }
