@@ -14,10 +14,12 @@ insert into merchant values(null, 'Comedy Standup', '00000010');
 insert into merchant values(null, 'Burger Place', '00000011');
 insert into merchant values(null, 'Fancy Restaurant', '00000012');
 
-insert into location values(null, 'GoogleReference', 1.0, 1.0, 1, (SELECT id FROM merchant), 4.99);
-insert into location values(null, 'GoogleReference', 1.0, 1.0, 2, (SELECT id FROM merchant), 2.99);
-insert into location values(null, 'GoogleReference', 1.0, 1.0, 3, (SELECT id FROM merchant), 10.99);
-insert into location values(null, 'GoogleReference', 1.0, 1.0, 4, (SELECT id FROM merchant), 11.99);
+insert into location values(null, 'GoogleReference', 1.0, 1.0, 1, 1, 4.99);
+insert into location values(null, 'GoogleReference', 1.0, 1.0, 2, 2, 2.99);
+insert into location values(null, 'GoogleReference', 1.0, 1.0, 3, 3, 10.99);
+insert into location values(null, 'GoogleReference', 1.0, 1.0, 1, 4, 11.99);
+insert into location values(null, 'GoogleReference', 1.0, 1.0, 1, 5, 11.99);
+insert into location values(null, 'GoogleReference', 1.0, 1.0, 1, 6, 11.99);
 
 insert into subscription values(null, 1, 1);
 insert into subscription values(null, 2, 2);
@@ -25,4 +27,5 @@ insert into subscription values(null, 3, 3);
 insert into subscription values(null, 4, 4);
 
 COMMIT;
+
 
