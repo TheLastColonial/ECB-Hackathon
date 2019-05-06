@@ -21,19 +21,19 @@ namespace GeoPay_API.Repos
         public void Create(TransactionHistory transaction)
         {
             string sql = $"INSERT INTO TransactionHistory(Id, State, Amount, SubscriptionId, RemittanceInfo, BankTransactionId) "
-            + $"Values({transaction.Id}, {transaction.State}, {transaction.Amount}, {transaction.SubscriptionId}, {transaction.RemittanceInfo}, {transaction.BankTransactionId})";
+            + $"Values(null, '{transaction.State}', {transaction.Amount}, {transaction.SubscriptionId}, '{transaction.RemittanceInfo}', '{transaction.BankTransactionId}')";
             using (DbConnection connection = dbConnectionFactory.CreateAndOpenDb())
             {
                 connection.Execute(sql);
             }
         }
 
-        public void Update(int transactionId, string state, string bankTransactionId)
+        public void Update(string state, string bankTransactionId)
         {
-            string sql = "UPDATE TransactionHistory SET State = @State, BankTransactionId = @TransactionId  WHERE Id = @Id";
+            string sql = "UPDATE TransactionHistory SET State = @State WHERE BankTransactionId = @BankTransactionId";
             using (DbConnection connection = dbConnectionFactory.CreateAndOpenDb())
             {
-                connection.Execute(sql, new { Id = transactionId, State = state, TransactionId = bankTransactionId });
+                connection.Execute(sql, new { State = state, BankTransactionId = bankTransactionId });
             }
         }
     }
