@@ -1,7 +1,9 @@
-﻿namespace GeoPay_API.Repos
+﻿using GeoPay_API.Models;
+
+namespace GeoPay_API.Repos
 {
     public interface IGeoRepo
     {
-        void GetMerchantLocation();
+        Location GetMerchantLocation();
     }
 }
