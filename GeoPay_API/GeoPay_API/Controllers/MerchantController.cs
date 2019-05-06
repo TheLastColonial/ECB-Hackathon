@@ -43,9 +43,20 @@ namespace GeoPay_API.Controllers
         }
         
         [HttpPost(Name = "Onboarding")]
-        public async Task<IActionResult> Onboarding()
+        public async Task<IActionResult> Onboarding([FromBody] Merchant merchant)
         {
+            if (merchant == null) return this.BadRequest(nameof(merchant));
+            
+            try
+            {
+                this.merchantRepo.Add(merchant);
 
+                this.Ok();
+            }
+            catch (Exception ex)
+            {
+                this.StatusCode(500, ex.Message);
+            }
         }
     }
 }

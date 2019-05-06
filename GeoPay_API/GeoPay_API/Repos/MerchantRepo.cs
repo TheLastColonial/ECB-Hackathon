@@ -18,9 +18,14 @@ namespace GeoPay_API.Repos
             dbConnectionFactory = new DbConnectionFactory();
         }
 
-        public void Add()
+        public void Add(Merchant merchant)
         {
-            string sql = "INSERT INTO Merchant VALUES (NULL, @name, )";
+            string sql = "INSERT INTO Merchant VALUES (NULL, @name, @accountNumber)";
+            
+            using (DbConnection connection = dbConnectionFactory.CreateAndOpenDb())
+            {
+                connection.Execute(sql, new { name = merchant.Name, accountNumber = merchant.AccountNumber });
+            }
         }
 
         public IEnumerable<Merchant> GetMerchants()
