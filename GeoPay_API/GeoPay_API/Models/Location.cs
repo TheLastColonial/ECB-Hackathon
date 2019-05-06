@@ -12,5 +12,6 @@ namespace GeoPay_API.Models
         public double Lat { get; set; }
         public double Lng { get; set; }
         public int Radius { get; set; }
+        public decimal Amount { get; set; }
     }
 }
