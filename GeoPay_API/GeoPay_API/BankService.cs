@@ -17,7 +17,7 @@ namespace GeoPay_API
 
         public async Task<PaymentStatus> ExecutePayment(string transactionId)
         {
-            HttpResponseMessage result = await this.httpClient.PostAsync($"/api/Payment/{transactionId}",);
+            HttpResponseMessage result = await this.httpClient.PostAsync($"/api/Payment/{transactionId}", null);
 
             return JsonConvert.DeserializeObject<PaymentStatus>(await result.Content.ReadAsStringAsync());
         }
