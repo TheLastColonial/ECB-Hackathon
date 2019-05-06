@@ -8,7 +8,7 @@ namespace GeoPay_API.Models
 
         public string AccountNumber { get; set; }
 
-        public decimal Latitiude { get; set; }
+        public decimal Latitude { get; set; }
 
         public decimal Longitude { get; set; }
 

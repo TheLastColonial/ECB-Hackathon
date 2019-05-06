@@ -25,17 +25,18 @@ namespace GeoPay_API.Controllers
             return Json(new {Merchants = merchants});
         }
 
+        [Obsolete]
         [HttpPost]
-        public IActionResult SetUserSubscription(int userId, [FromBody]List<Merchant> merchants)
+        public IActionResult SetUserSubscription(int userId, [FromBody]List<int> merchantId)
         {
             if (userId == null) return this.BadRequest(nameof(userId));
-            if (merchants.Count <= 0) return this.BadRequest(nameof(merchants));
+            if (merchantId.Count <= 0) return this.BadRequest(nameof(merchantId));
 
             try
             {
                 return this.Created($"api/subscription/{1}", new Subscription()
                 {
-                    SubscriptionId = 1,
+                    Id = 1,
                     MerchantId = 1,
                     UserId = userId
                 });
