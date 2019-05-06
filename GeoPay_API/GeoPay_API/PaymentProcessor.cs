@@ -12,11 +12,13 @@ namespace GeoPay_API
             this.bankService = new BankService();
         }
 
-        public async Task RegisterPayment(Payment payment)
+        public async Task<string> RegisterPayment(Payment payment)
         {
             PaymentStatus paymentStatus = await this.bankService.RegisterPayment(payment);
 
             // Todo: write TransactionHistory entry
+
+            return paymentStatus.TransactionId;
         }
 
         public async Task<bool> ExecutePayment(string transactionId)
