@@ -5,6 +5,7 @@ using System;
 
 namespace GeoPay_API.Controllers
 {
+    [Obsolete]
     [Route("api/[controller]")]
     [ApiController]
     public class GeoController : ControllerBase
