@@ -1,6 +1,7 @@
 ﻿using GeoPay_API.Models;
 using GeoPay_API.Repos;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace GeoPay_API
@@ -32,6 +33,11 @@ namespace GeoPay_API
             this.transactionRepository.Create(transactionHistory);
 
             return paymentStatus.TransactionId;
+        }
+
+        public void RejectPayment(string transactionId)
+        {
+            this.transactionRepository.Update("REJECTED", transactionId);
         }
 
         public async Task<bool> ExecutePayment(string transactionId)

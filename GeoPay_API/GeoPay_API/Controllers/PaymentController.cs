@@ -1,5 +1,6 @@
 using GeoPay_API.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading.Tasks;
 
 namespace GeoPay_API.Controllers
@@ -21,6 +22,22 @@ namespace GeoPay_API.Controllers
             string transactionId = await this.processor.RegisterPayment(subscriptionId, payment);
 
             return Json(new { TransactionId = transactionId });
+        }
+        
+        [HttpPost("Reject/{transactionId}", Name = "Reject")]
+        public async Task<IActionResult> Rejected(string transactionId)
+        {
+            if (string.IsNullOrWhiteSpace(transactionId)) return this.BadRequest(nameof(transactionId));
+
+            try
+            {
+                processor.RejectPayment(transactionId);
+                return this.Ok(transactionId);
+            }
+            catch (Exception ex)
+            {
+                return this.StatusCode(500, ex.Message);
+            }
         }
 
         [HttpPost("/{transactionId}", Name = "Confirm")]
