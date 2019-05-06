@@ -21,10 +21,23 @@ namespace GeoPay_API.Repos
         public void Add(Merchant merchant)
         {
             string sql = "INSERT INTO Merchant VALUES (NULL, @name, @accountNumber)";
-            
+                        
             using (DbConnection connection = dbConnectionFactory.CreateAndOpenDb())
             {
                 connection.Execute(sql, new { name = merchant.Name, accountNumber = merchant.AccountNumber });
+            }
+
+            sql = "INSERT INTO Location VALUES (NULL, @latitude, @longitude, @radius, @googleReference, @amount)";
+
+            using (DbConnection connection = dbConnectionFactory.CreateAndOpenDb())
+            {
+                connection.Execute(sql, new {
+                    latitude = merchant.Latitude,
+                    longitude = merchant.Longitude,
+                    radius = merchant.Radius,
+                    googleReference = merchant.GoogleReference,
+                    amount = 5
+                });
             }
         }
 
