@@ -1,13 +1,14 @@
 ﻿using GeoPay_API.Models;
+using System.Threading.Tasks;
 
 namespace GeoPay_API
 {
     public interface IBankService
     {
-        PaymentStatus RegisterPayment(Payment payment);
+        Task<PaymentStatus> RegisterPayment(Payment payment);
 
-        PaymentStatus ExecutePayment(string transactionId);
+        Task<PaymentStatus> ExecutePayment(string transactionId);
 
-        PaymentStatus GetPaymentStatus(string transactionId);
+        Task<PaymentStatus> GetPaymentStatus(string transactionId);
     }
 }
