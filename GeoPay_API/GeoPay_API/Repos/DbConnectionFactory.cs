@@ -13,7 +13,7 @@ namespace GeoPay_API.Repos
     {
         public DbConnection CreateAndOpenDb()
         {
-            var dbFilePath = "C:\\Projects\\ECB-Hackathon\\ecb.db";
+            var dbFilePath = "C:\\Projects\\Git\\..\\ecb.db";
 
             SQLiteConnection dbConnection = new SQLiteConnection(string.Format(
                 "Data Source={0};Version=3;", dbFilePath));

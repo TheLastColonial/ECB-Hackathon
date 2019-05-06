@@ -9,7 +9,7 @@ namespace GeoPay_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class MerchantController : ControllerBase
+    public class MerchantController : Controller
     {
         private IMerchantRepo merchantRepo { get; set; }
 
@@ -19,9 +19,10 @@ namespace GeoPay_API.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Merchant> Get()
+        public JsonResult Get()
         {
-            return this.merchantRepo.GetMerchants();
+            var merchants =  this.merchantRepo.GetMerchants();
+            return Json(new {Merchants = merchants});
         }
 
         [HttpPost]
