@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GeoPay_API.Controllers
 {
-
     [Route("api/[controller]")]
     [ApiController]
     public class SubscriptionController : ControllerBase
