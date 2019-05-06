@@ -25,6 +25,7 @@ namespace GeoPay_API.Controllers
             return Json(new {Merchants = merchants});
         }
 
+        [Obsolete]
         [HttpPost]
         public IActionResult SetUserSubscription(int userId, [FromBody]List<int> merchantId)
         {
