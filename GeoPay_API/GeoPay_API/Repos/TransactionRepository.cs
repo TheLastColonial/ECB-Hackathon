@@ -1,6 +1,9 @@
 using Dapper;
 using GeoPay_API.Models;
+using System;
+using System.Collections.Generic;
 using System.Data.Common;
+using System.Threading.Tasks;
 
 namespace GeoPay_API.Repos
 {
@@ -20,6 +23,17 @@ namespace GeoPay_API.Repos
             using (DbConnection connection = dbConnectionFactory.CreateAndOpenDb())
             {
                 connection.Execute(sql);
+            }
+        }
+
+        public async Task<List<TransactionHistory>> Get(string merchantId)
+        {
+            string sql = $"SELECT * FROM TransactionHistory WHERE merchantId = @merchantId";
+
+            using (DbConnection connection = dbConnectionFactory.CreateAndOpenDb())
+            {
+                var result = await connection.QueryAsync<TransactionHistory>(sql, new { merchantId });
+                return result.AsList();
             }
         }
 
