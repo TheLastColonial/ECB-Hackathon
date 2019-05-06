@@ -13,7 +13,8 @@ namespace GeoPay_API.Repos
                 GoogleRef = "GoogleRef",
                 Lat = 1.1,
                 Lng = 2.2,
-                Radius = 100
+                Radius = 100,
+                Amount = 4.99M
             };
         }
     }
