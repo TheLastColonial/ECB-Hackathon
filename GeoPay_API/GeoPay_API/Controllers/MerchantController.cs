@@ -21,8 +21,24 @@ namespace GeoPay_API.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            var merchants =  this.merchantRepo.GetMerchants();
-            return Json(new {Merchants = merchants});
+            var merchants = this.merchantRepo.GetMerchants();
+            return Json(new { Merchants = merchants });
+
+            //try
+            //{
+            //    var merchants = this.merchantRepo.GetMerchants();
+
+            //    if (merchants == null || merchants.ToList().Count <= 0)
+            //    {
+            //        return this.NotFound();
+            //    }
+
+            //    return this.Ok(merchants);
+            //}
+            //catch (Exception ex)
+            //{
+            //    return this.StatusCode(500, ex.Message);
+            //}
         }
 
         [Obsolete]
