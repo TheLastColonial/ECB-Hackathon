@@ -1,5 +1,6 @@
 ﻿using GeoPay_API.Repos;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 
 namespace GeoPay_API.Controllers
@@ -19,7 +20,7 @@ namespace GeoPay_API.Controllers
             {
                 var location = this.GeoRepo.GetMerchantLocation(merchantId);
                 if (location == null) return this.NotFound();
-                return this.Ok(location);
+                return this.Ok(JsonConvert.SerializeObject(location));
             }
             catch (Exception ex)
             {
