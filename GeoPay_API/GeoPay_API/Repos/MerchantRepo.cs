@@ -18,6 +18,11 @@ namespace GeoPay_API.Repos
             dbConnectionFactory = new DbConnectionFactory();
         }
 
+        public void Add()
+        {
+            string sql = "INSERT INTO Merchant VALUES (NULL, @name, )";
+        }
+
         public IEnumerable<Merchant> GetMerchants()
         {
             string sql = "SELECT Merchant.Id, Name, AccountNumber, Latitude, Longitude, Radius, GoogleReference FROM Merchant INNER JOIN Location ON Merchant.Id = Location.MerchantId";

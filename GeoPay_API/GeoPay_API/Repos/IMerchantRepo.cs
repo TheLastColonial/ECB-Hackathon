@@ -8,5 +8,6 @@ namespace GeoPay_API.Repos
     public interface IMerchantRepo
     {
         IEnumerable<Merchant> GetMerchants();
+        void Add();
     }
 }
