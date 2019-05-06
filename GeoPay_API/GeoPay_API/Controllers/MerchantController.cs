@@ -25,7 +25,7 @@ namespace GeoPay_API.Controllers
         }
 
         [HttpPost]
-        public IActionResult SetUserSubscription(int userId, List<Merchant> merchants)
+        public IActionResult SetUserSubscription(int userId, [FromBody]List<Merchant> merchants)
         {
             if (userId == null) return this.BadRequest(nameof(userId));
             if (merchants.Count <= 0) return this.BadRequest(nameof(merchants));
