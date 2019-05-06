@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite.Core;
+using System.Data.SQLite;
 using System.Linq;
+using Dapper;
 using GeoPay_API.Models;
 
 namespace GeoPay_API.Repos
