@@ -7,5 +7,13 @@ namespace GeoPay_API.Models
         public string Name { get; set; }
 
         public string AccountNumber { get; set; }
+
+        public decimal Latitiude { get; set; }
+
+        public decimal Longitude { get; set; }
+
+        public int Radius { get; set; }
+
+        public string GoogleReference { get; set; }
     }
 }

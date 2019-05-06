@@ -19,7 +19,9 @@ namespace GeoPay_API.Repos
             }
             var _dbConnection = new SQLiteConnection(string.Format("Data Source={0};Version=3;", dbFilePath));
             _dbConnection.Open();
-            return _dbConnection.Query<Merchant>("SELECT Id, Name, AccountNumber FROM Merchant").ToList();
+            return _dbConnection.Query<Merchant>(
+                "SELECT Merchant.Id, Name, AccountNumber, Latitude, Longitude, Radius, GoogleReference FROM Merchant INNER JOIN Location ON Merchant.Id = Location.MerchantId")
+                .ToList();
         }
     }
 }
