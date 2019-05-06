@@ -12,7 +12,7 @@ namespace GeoPay_API
 
         public BankService()
         {
-            httpClient = new HttpClient { BaseAddress = new Uri("http://localhost:56449") };
+            httpClient = new HttpClient { BaseAddress = new Uri("https://bankapi-2019.azurewebsites.net") }; // http://localhost:56449
         }
 
         public async Task<PaymentStatus> ExecutePayment(string transactionId)
