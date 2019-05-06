@@ -5,11 +5,11 @@ namespace GeoPay_API.Repos
 {
     public class TestGeoRepo : IGeoRepo
     {
-        public Location GetMerchantLocation()
+        public Location GetMerchantLocation(int merchantId)
         {
             return new Location()
             {
-                MerchantId = 1,
+                MerchantId = merchantId,
                 GoogleRef = "GoogleRef",
                 Lat = 1.1,
                 Lng = 2.2,
