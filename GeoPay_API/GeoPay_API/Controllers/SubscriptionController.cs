@@ -12,8 +12,8 @@ namespace GeoPay_API.Controllers
     [ApiController]
     public class SubscriptionController : ControllerBase
     {
-        public ISubscriptionRepo SubscriptionRepo { get; set; } 
-        public IMerchantRepo MerchantRepo { get; set; }
+        public ISubscriptionRepo SubscriptionRepo { get; set; } = new SubscriptionRepo();
+        public IMerchantRepo MerchantRepo { get; set; } = new MerchantRepo();
 
         [HttpGet(Name = "UserSubscriptions")]
         public IActionResult GetSubscriptionUser(int userId)

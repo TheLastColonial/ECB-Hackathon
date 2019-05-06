@@ -50,7 +50,12 @@ namespace GeoPay_API.Repos
 
         public int NewSubscription(int userId, int merchantId)
         {
-            throw new NotImplementedException();
+            string sql = $"INSERT INTO Subscription VALUES (NULL, {userId}, {merchantId})";
+
+            using (DbConnection connection = dbConnectionFactory.CreateAndOpenDb())
+            {
+                return connection.Execute(sql);
+            }
         }
     }
 }

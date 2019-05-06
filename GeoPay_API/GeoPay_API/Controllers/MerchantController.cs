@@ -34,7 +34,7 @@ namespace GeoPay_API.Controllers
             {
                 return this.Created($"api/subscription/{1}", new Subscription()
                 {
-                    SubscriptionId = 1,
+                    Id = 1,
                     MerchantId = 1,
                     UserId = userId
                 });
