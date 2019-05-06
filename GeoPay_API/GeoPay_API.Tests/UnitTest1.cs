@@ -1,23 +1,24 @@
+using GeoPay_API;
 using GeoPay_API.Models;
-using GeoPay_API.Repos;
 using NUnit.Framework;
+using System.Threading.Tasks;
 
 namespace Tests
 {
     public class Tests
     {
-        private UserRepository userRepository;
-
         [SetUp]
         public void Setup()
         {
-            userRepository = new UserRepository();
         }
 
         [Test]
-        public void Test1()
+        public async Task Test1()
         {
-            User user = userRepository.GetUser(1);
+            PaymentProcessor paymentProcessor = new PaymentProcessor();
+
+
+            var result = await paymentProcessor.ExecutePayment("321463282363179XX");
         }
     }
 }
