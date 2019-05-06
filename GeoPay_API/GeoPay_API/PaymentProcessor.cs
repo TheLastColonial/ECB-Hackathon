@@ -1,5 +1,6 @@
 ﻿using GeoPay_API.Models;
 using GeoPay_API.Repos;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace GeoPay_API
@@ -15,7 +16,7 @@ namespace GeoPay_API
             this.transactionRepository = new TransactionRepository();
         }
 
-        public async Task<string> RegisterPayment(Payment payment, int subscriptionId)
+        public async Task<string> RegisterPayment(int subscriptionId, [FromBody]Payment payment)
         {
             PaymentStatus paymentStatus = await this.bankService.RegisterPayment(payment);
 
