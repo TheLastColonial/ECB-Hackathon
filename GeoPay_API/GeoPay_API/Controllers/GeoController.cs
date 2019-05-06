@@ -19,14 +19,15 @@ namespace GeoPay_API.Controllers
             try
             {
                 var location = this.GeoRepo.GetMerchantLocation(merchantId);
+
                 if (location == null) return this.NotFound();
-                return this.Ok(JsonConvert.SerializeObject(location));
+
+                return this.Ok(location);
             }
             catch (Exception ex)
             {
                 return this.StatusCode(500, ex.Message);
-            }
-            
+            }            
         }
     }
 }
