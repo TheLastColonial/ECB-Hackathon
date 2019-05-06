@@ -7,7 +7,7 @@ namespace GeoPay_API.Models
 {
     public class Subscription
     {
-        public int SubscriptionId { get; set; }
+        public int Id { get; set; }
         public int MerchantId { get; set; }
         public int UserId { get; set; }
     }

@@ -30,12 +30,22 @@ namespace GeoPay_API.Repos
 
         public List<Subscription> GetMerchantSubscriptions(int merchantId)
         {
-            throw new NotImplementedException();
+            string sql = $"SELECT * FROM Subscription WHERE MerchantId = {merchantId}";
+
+            using (DbConnection connection = dbConnectionFactory.CreateAndOpenDb())
+            {
+                return connection.Query<Subscription>(sql).ToList();
+            }
         }
 
         public List<Subscription> GetUserSubscriptions(int userId)
         {
-            throw new NotImplementedException();
+            string sql = $"SELECT * FROM Subscription WHERE UserId = {userId}";
+
+            using (DbConnection connection = dbConnectionFactory.CreateAndOpenDb())
+            {
+                return connection.Query<Subscription>(sql).ToList();
+            }
         }
 
         public int NewSubscription(int userId, int merchantId)
