@@ -51,11 +51,11 @@ namespace GeoPay_API.Controllers
             {
                 this.merchantRepo.Add(merchant);
 
-                this.Ok();
+                return this.Ok();
             }
             catch (Exception ex)
             {
-                this.StatusCode(500, ex.Message);
+                return this.StatusCode(500, ex.Message);
             }
         }
     }
