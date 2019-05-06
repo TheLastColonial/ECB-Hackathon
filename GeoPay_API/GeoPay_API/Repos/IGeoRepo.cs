@@ -4,6 +4,6 @@ namespace GeoPay_API.Repos
 {
     public interface IGeoRepo
     {
-        Location GetMerchantLocation();
+        Location GetMerchantLocation(int merchantId);
     }
 }
