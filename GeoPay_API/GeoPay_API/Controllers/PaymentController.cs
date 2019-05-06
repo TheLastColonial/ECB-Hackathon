@@ -27,7 +27,7 @@ namespace GeoPay_API.Controllers
             return Json(new { TransactionId = transactionId });
         }
 
-        [HttpPost]
+        [HttpPost("/{transactionId}")]
         public async Task<JsonResult> Execute(string transactionId)
         {
             bool result = await this.processor.ExecutePayment(transactionId);
