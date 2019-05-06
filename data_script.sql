@@ -4,6 +4,8 @@ insert into user values(null, null, 'Alex', 'Alex', 'Woodward', '00000001', '1')
 insert into user values(null, null, 'Keah', 'Keah', 'Peters', '00000002', '1');
 insert into user values(null, null, 'Lewis', 'Lewis', 'Alen', '00000003', '1');
 insert into user values(null, null, 'Agniezka', 'Agniezka', 'Madi', '00000004', '1');
+insert into user values(null, null, 'Sophie', 'Sophie', 'Higgins', '00000005', '1');
+insert into user values(null, null, 'Mateusz', 'Mateusz', 'Johanik', '00000006', '1');
 
 insert into merchant values(null, 'Museum', '00000007');
 insert into merchant values(null, 'Art Gallery', '00000008');
