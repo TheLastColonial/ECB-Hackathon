@@ -1,6 +1,8 @@
 ﻿using FakeBankService.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System;
+using System.Linq;
 
 namespace FakeBankService.Controllers
 {
@@ -14,7 +16,7 @@ namespace FakeBankService.Controllers
             var paymentStatus = new PaymentStatus
             {
                 AccountNumber = payment.InitiatingPartyAccountNumber,
-                TransactionId = "321463282363179XX",
+                TransactionId = this.GetRandomString(16),
                 Status = "STORED"
             };
 
@@ -45,6 +47,14 @@ namespace FakeBankService.Controllers
             };
 
             return this.Ok(JsonConvert.SerializeObject(paymentStatus));
+        }
+
+        private string GetRandomString(int length)
+        {
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+              .Select(s => s[random.Next(s.Length)]).ToArray());
         }
     }
 }
