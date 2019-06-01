@@ -20,7 +20,7 @@ namespace GeoPay_API.Controllers
         }
 
         [HttpGet]
-        public JsonResult Get()
+        public IActionResult Get()
         {
             var merchants = this.merchantRepo.GetMerchants();
             return Json(new { Merchants = merchants });
