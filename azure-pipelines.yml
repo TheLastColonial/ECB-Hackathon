@@ -20,7 +20,7 @@ steps:
   inputs:
     command: 'publish'
     publishWebProjects: true
-    arguments: '.\GeoPay_API\GeoPay_API\GeoPay_API.csproj'
+    arguments: "./GeoPay_API"
 
 - task: PublishBuildArtifacts@1
   inputs:
