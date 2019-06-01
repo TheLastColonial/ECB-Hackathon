@@ -26,6 +26,6 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'build'
-    projects: './GeoPay_API/GeoPay_API/GeoPay_API.csproj'
+    projects: '**/*GeoPay_API.csproj'
     arguments: 'configuration $(BuildConfiguration) --no-restore'
 
