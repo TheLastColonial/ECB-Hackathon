@@ -15,3 +15,4 @@ variables:
 steps:
 - script: dotnet build ".\GeoPay_API\GeoPay_API\GeoPay_API.csproj" --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+- task: PublishBuildArtifacts@1
