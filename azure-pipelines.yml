@@ -13,7 +13,7 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build ".\GeoPay_API\GeoPay_API\GeoPay_API.csproj" --configuration $(buildConfiguration)
+- script: dotnet build "**/*.csproj" --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
