@@ -23,3 +23,9 @@ steps:
     feedsToUse: 'select'
     vstsFeed: '/1b28db9e-0bc0-47f5-ab83-ef2873d39f59'
 
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'build'
+    projects: './GeoPay_API/GeoPay_API/GeoPay_API.csproj'
+    arguments: 'configuration $(BuildConfiguration) --no-restore'
+
