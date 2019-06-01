@@ -15,4 +15,15 @@ variables:
 steps:
 - script: dotnet build ".\GeoPay_API\GeoPay_API\GeoPay_API.csproj" --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'publish'
+    publishWebProjects: true
+    arguments: '.\GeoPay_API\GeoPay_API\GeoPay_API.csproj'
+
 - task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
