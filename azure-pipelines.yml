@@ -13,5 +13,5 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build .\GeoPay_API\GeoPay_API.sln --configuration $(buildConfiguration)
+- script: dotnet build .\GeoPay_API\GeoPay_API\GeoPay_API.csproj --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
