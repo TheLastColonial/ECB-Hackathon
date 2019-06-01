@@ -19,8 +19,8 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'publish'
-    publishWebProjects: true
-    arguments: "./GeoPay_API"
+    publishWebProjects: false
+    projects: '.\GeoPay_API\GeoPay_API\GeoPay_API.csproj'
 
 - task: PublishBuildArtifacts@1
   inputs:
